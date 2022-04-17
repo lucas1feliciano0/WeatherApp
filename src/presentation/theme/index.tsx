@@ -1,4 +1,5 @@
 import {DefaultTheme} from 'styled-components';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const theme: DefaultTheme = {
   fonts: {
@@ -7,6 +8,13 @@ const theme: DefaultTheme = {
       semibold: 'Poppins-SemiBold',
       bold: 'Poppins-Bold',
     },
+  },
+
+  fontSize: {
+    small: RFValue(12),
+    medium: RFValue(14),
+    big: RFValue(18),
+    large: RFValue(48),
   },
 
   borderRadius: {
