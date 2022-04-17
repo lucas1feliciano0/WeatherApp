@@ -4,7 +4,7 @@ import {IHttpClient, HttpRequest, HttpResponse} from '../../domain/gateways';
 export class AxiosHttpClient implements IHttpClient {
   private api: AxiosInstance;
 
-  constructor(baseURL: string) {
+  constructor(baseURL?: string) {
     this.api = axios.create({baseURL});
   }
 
