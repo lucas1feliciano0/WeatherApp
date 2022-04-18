@@ -1,4 +1,8 @@
 import React, {useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import {Alert} from 'react-native';
+
+import {CityExistsError} from '../../../domain/errors/city-exists-error';
 
 import {CityModel} from '../../../domain/models/city';
 import {SaveCity} from '../../../domain/usecases/save-city';
@@ -12,15 +16,22 @@ interface IProps {
 }
 
 const Search: React.FC<IProps> = ({searchCity, saveCity}) => {
+  const navigation = useNavigation();
+
   const [searchValue, setSearchValue] = useState('');
   const [cities, setCities] = useState<CityModel[]>([]);
 
   function handleGoBack() {
-    // TODO: implement go back
+    navigation.goBack();
   }
 
   async function handleSaveCity(city: CityModel) {
-    saveCity.handle(city);
+    const result = await saveCity.handle(city);
+    if (result instanceof CityExistsError) {
+      Alert.alert('A cidade já foi adicionada');
+    } else {
+      handleGoBack();
+    }
   }
 
   async function handleSubmitSearch() {

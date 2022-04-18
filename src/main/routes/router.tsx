@@ -18,8 +18,8 @@ const Router: React.FC = () => {
   return (
     <NavigationContainer>
       <Navigator screenOptions={screenOptions}>
-        <Screen name="Search" component={MakeSearchScreen} />
         <Screen name="Home" component={MakeHomeScreen} />
+        <Screen name="Search" component={MakeSearchScreen} />
       </Navigator>
     </NavigationContainer>
   );
