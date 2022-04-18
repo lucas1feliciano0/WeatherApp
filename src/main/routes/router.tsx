@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {
+  CardStyleInterpolators,
   createStackNavigator,
   StackNavigationOptions,
 } from '@react-navigation/stack';
@@ -18,6 +19,7 @@ const {Navigator, Screen} = createStackNavigator<RootStackParamList>();
 const Router: React.FC = () => {
   const screenOptions: StackNavigationOptions = {
     headerShown: false,
+    cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
   };
 
   return (
