@@ -13,8 +13,8 @@ const theme: DefaultTheme = {
   fontSize: {
     small: RFValue(12),
     medium: RFValue(14),
-    big: RFValue(18),
-    large: RFValue(48),
+    big: RFValue(16),
+    large: RFValue(63),
   },
 
   borderRadius: {
@@ -24,8 +24,8 @@ const theme: DefaultTheme = {
   },
 
   padding: {
-    small: 8,
-    medium: 16,
+    small: 12,
+    medium: 14,
     big: 20,
   },
 
