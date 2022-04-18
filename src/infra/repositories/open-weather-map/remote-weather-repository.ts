@@ -4,11 +4,11 @@ import {IRemoteWeatherRepository} from '../../../domain/repositories/remote-weat
 
 function mapWeather(weather: any): WeatherModel {
   return {
-    dt: weather.dt,
-    description: weather.temp_max,
-    temp: weather.temp,
-    maxTemperature: weather.maxTemperature,
-    minTemperature: weather.temp_min,
+    dt: weather.main.dt,
+    description: weather.weather[0]?.description,
+    temp: weather.main.temp,
+    maxTemperature: weather.main.maxTemperature,
+    minTemperature: weather.main.temp_min,
   };
 }
 
@@ -26,6 +26,8 @@ export class OWMWeatherRepository implements IRemoteWeatherRepository {
         id,
         appid: this.appId,
         cnt: limit,
+        lang: 'pt',
+        units: 'metric',
       },
     });
     return response.body.list.map(mapWeather);

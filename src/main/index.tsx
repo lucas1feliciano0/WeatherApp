@@ -1,10 +1,14 @@
 import React from 'react';
-import {StatusBar} from 'react-native';
+import {LogBox, StatusBar} from 'react-native';
 
 import theme from '../presentation/theme';
 import {ThemeProvider} from '../presentation/theme/styled-components';
 
 import {Router} from './routes/router';
+
+if (__DEV__) {
+  LogBox.ignoreAllLogs();
+}
 
 const main: React.FC = () => {
   return (

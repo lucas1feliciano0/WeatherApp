@@ -7,7 +7,7 @@ import {Container, PaginationDots, SwipeContainer} from './styles';
 
 interface IProps {
   data: CityModel[];
-  onChangeActive?: (id: number) => void;
+  onChangeActive?: (city: CityModel) => void;
 }
 
 const WeatherCarousel: React.FC<IProps> = ({data = [], onChangeActive}) => {
@@ -16,7 +16,7 @@ const WeatherCarousel: React.FC<IProps> = ({data = [], onChangeActive}) => {
   function handleChangeActive(index: number) {
     setActiveDot(index);
 
-    onChangeActive?.(index);
+    onChangeActive?.(data[index]);
   }
 
   function renderWeatherItems({item}: {item: CityModel}) {
