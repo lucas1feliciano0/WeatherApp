@@ -8,7 +8,12 @@ import {
 import MakeHomeScreen from '../factories/pages/home-factory';
 import MakeSearchScreen from '../factories/pages/search-factory';
 
-const {Navigator, Screen} = createStackNavigator();
+export type RootStackParamList = {
+  Home: undefined;
+  Search: undefined;
+};
+
+const {Navigator, Screen} = createStackNavigator<RootStackParamList>();
 
 const Router: React.FC = () => {
   const screenOptions: StackNavigationOptions = {
