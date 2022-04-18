@@ -13,7 +13,7 @@ import {RootStackParamList} from '../../../main/routes/router';
 import {EmptyList} from './components/EmptyList';
 import WeatherCarousel from './components/WeatherCarousel/WeatherCarousel';
 
-import {Button, CityTitle, Container, Header} from './styles';
+import {Button, CityTitle, Container, Header, LoadingScreen} from './styles';
 import {KeyNotFoundError} from '../../../domain/errors/key-not-found-error';
 import {Alert} from 'react-native';
 
@@ -27,6 +27,8 @@ interface IProps {
 
 const Home: React.FC<IProps> = ({listCities, getWeather, favoriteCity}) => {
   const navigation = useNavigation<HomeNavigation>();
+
+  const [loading, setLoading] = useState(true);
 
   const [cities, setCities] = useState<CityModel[]>([]);
   const [activeCity, setActiveCity] = useState<CityModel | undefined>(
@@ -60,9 +62,11 @@ const Home: React.FC<IProps> = ({listCities, getWeather, favoriteCity}) => {
   }
 
   async function loadCities() {
+    setLoading(true);
     const savedCities = await listCities.handle();
     setCities(savedCities);
     handleChangeActiveCity(savedCities[0]);
+    setLoading(false);
   }
 
   useFocusEffect(
@@ -96,6 +100,10 @@ const Home: React.FC<IProps> = ({listCities, getWeather, favoriteCity}) => {
   useEffect(() => {
     return clear;
   }, []);
+
+  if (loading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <Container>

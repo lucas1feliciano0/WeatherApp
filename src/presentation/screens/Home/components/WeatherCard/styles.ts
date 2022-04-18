@@ -1,6 +1,10 @@
 import styled from 'styled-components/native';
+import {MotiView} from 'moti';
 
-export const Container = styled.View`
+export const Container = styled(MotiView).attrs({
+  from: {opacity: 0, translateY: 10},
+  animate: {opacity: 1, translateY: 0},
+})`
   flex: 1;
   justify-content: center;
   align-items: center;
