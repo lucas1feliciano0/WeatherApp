@@ -1,12 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {CityModel} from '../../../domain/models/city';
 
 import {EmptyList} from './components/EmptyList';
-import {WeatherCard} from './components/WeatherCard';
+import WeatherCarousel from './components/WeatherCarousel/WeatherCarousel';
 
 import {Button, CityTitle, Container, Header} from './styles';
 
 const Home: React.FC = () => {
-  const empty = false;
+  // TODO: implements local storage fetch
+  const cities: CityModel[] = [];
+
+  const [activeCity, setActiveCity] = useState(cities[0] || undefined);
+
+  function handleChangeActiveCity(index: number) {
+    if (cities[index]) {
+      setActiveCity(cities[index]);
+    }
+  }
 
   function handleNavigateToAddCity() {
     // TODO: handle navigation
@@ -18,7 +28,7 @@ const Home: React.FC = () => {
 
   return (
     <Container>
-      {empty ? (
+      {cities.length === 0 ? (
         <EmptyList
           onPressAddCity={handleNavigateToAddCity}
           accessibilityHintAddButton="Ir para a tela de pesquisar cidades"
@@ -31,9 +41,15 @@ const Home: React.FC = () => {
             leftAccessibilityHint="Ir para a tela de pesquisar cidades"
             onPressRight={handleFavoriteCity}
             rightAccessibilityHint="Favoritar cidade">
-            <CityTitle title="Tangará" subtitle="Brasil" />
+            <CityTitle
+              title={activeCity?.name}
+              subtitle={activeCity?.country}
+            />
           </Header>
-          <WeatherCard title="23" description="Chuvas leves" />
+          <WeatherCarousel
+            data={cities}
+            onChangeActive={handleChangeActiveCity}
+          />
           <Button title="Ver detalhes da cidade" onPress={() => {}} />
         </>
       )}

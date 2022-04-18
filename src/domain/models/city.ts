@@ -5,5 +5,6 @@ export type CityModel = {
   name: string;
   country: string;
   isFavorite?: boolean;
+
   weather?: WeatherModel[];
 };
