@@ -7,8 +7,11 @@ function mapWeather(weather: any): WeatherModel {
     dt: weather.main.dt,
     description: weather.weather[0]?.description,
     temp: weather.main.temp,
-    maxTemperature: weather.main.maxTemperature,
+    maxTemperature: weather.main.temp_max,
     minTemperature: weather.main.temp_min,
+    feelsLike: weather.main.feels_like,
+    humidity: weather.main.humidity,
+    windSpeed: weather.wind.speed,
   };
 }
 

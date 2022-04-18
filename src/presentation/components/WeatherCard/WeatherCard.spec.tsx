@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from '@testing-library/react-native';
 
-import {Provider} from '../../../../../main/config/TestProvider';
+import {Provider} from '../../../main/config/TestProvider';
 import {WeatherCard} from './index';
 
 describe('WeatherCard component', () => {

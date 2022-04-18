@@ -40,8 +40,16 @@ const Home: React.FC<IProps> = ({listCities, getWeather, favoriteCity}) => {
   }
 
   function handleNavigateToAddCity() {
-    // TODO: handle navigation
     navigation.navigate('Search');
+  }
+
+  function handleNavigateToDetails() {
+    const updatedCity = cities.find(
+      cityUpdated => cityUpdated.id === activeCity?.id,
+    );
+    if (updatedCity) {
+      navigation.navigate('Details', {city: updatedCity});
+    }
   }
 
   async function handleFavoriteCity() {
@@ -121,7 +129,7 @@ const Home: React.FC<IProps> = ({listCities, getWeather, favoriteCity}) => {
             onPressRight={handleFavoriteCity}
             rightAccessibilityHint="Favoritar ou desfavoritar cidade">
             <CityTitle
-              title={activeCity?.name}
+              title={activeCity?.name || ''}
               subtitle={activeCity?.country}
             />
           </Header>
@@ -129,7 +137,10 @@ const Home: React.FC<IProps> = ({listCities, getWeather, favoriteCity}) => {
             data={cities}
             onChangeActive={handleChangeActiveCity}
           />
-          <Button title="Ver detalhes da cidade" onPress={() => {}} />
+          <Button
+            title="Ver detalhes da cidade"
+            onPress={handleNavigateToDetails}
+          />
         </>
       )}
     </Container>

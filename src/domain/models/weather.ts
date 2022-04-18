@@ -4,4 +4,7 @@ export type WeatherModel = {
   description: string;
   maxTemperature: number;
   minTemperature: number;
+  feelsLike: number;
+  humidity: number;
+  windSpeed: number;
 };

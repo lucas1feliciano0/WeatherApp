@@ -13,7 +13,8 @@ const theme: DefaultTheme = {
   fontSize: {
     small: RFValue(12),
     medium: RFValue(14),
-    big: RFValue(16),
+    big: RFValue(18),
+    big_2: RFValue(24),
     large: RFValue(63),
   },
 

@@ -2,7 +2,6 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   max-width: 28%;
-  max-height: 35%;
   background-color: ${props => props.theme.colors.background.secondary};
   border-radius: ${props => props.theme.borderRadius.big}px;
   padding: ${props => props.theme.padding.small}px;

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 import {CityModel} from '../../../../../domain/models/city';
-import {WeatherCard} from '../WeatherCard';
+import {WeatherCard} from '../../../../components/WeatherCard';
 
 import {Container, PaginationDots, SwipeContainer} from './styles';
 

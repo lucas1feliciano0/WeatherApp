@@ -12,5 +12,5 @@ export const Title = styled.Text`
 
 export const Subtitle = styled(Title)`
   color: ${props => props.theme.colors.texts.terciary};
-  font-size: ${props => props.theme.fontSize.small}px;
+  font-size: ${props => props.theme.fontSize.medium}px;
 `;

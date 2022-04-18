@@ -10,6 +10,10 @@ export const Container = styled(MotiView).attrs({
   align-items: center;
 `;
 
+export const Column = styled.View`
+  align-items: center;
+`;
+
 export const Icon = styled.Image.attrs({
   resizeMode: 'contain',
 })`
