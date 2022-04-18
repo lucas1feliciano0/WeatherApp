@@ -5,7 +5,7 @@ export const Container = styled.View`
   align-items: center;
   border-radius: ${props => props.theme.borderRadius.big}px;
   overflow: hidden;
-  background-color: ${props => props.theme.colors.texts.secondary};
+  background-color: ${props => props.theme.colors.texts.primary};
 `;
 
 export const TextInput = styled.TextInput.attrs(props => ({

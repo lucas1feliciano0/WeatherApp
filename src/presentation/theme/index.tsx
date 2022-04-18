@@ -1,5 +1,9 @@
 import {DefaultTheme} from 'styled-components';
 import {RFValue} from 'react-native-responsive-fontsize';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const theme: DefaultTheme = {
   fonts: {
@@ -14,8 +18,8 @@ const theme: DefaultTheme = {
     small: RFValue(12),
     medium: RFValue(14),
     big: RFValue(18),
-    big_2: RFValue(24),
-    large: RFValue(63),
+    big_2: RFValue(18),
+    large: RFValue(48),
   },
 
   borderRadius: {
@@ -25,9 +29,9 @@ const theme: DefaultTheme = {
   },
 
   padding: {
-    small: 12,
-    medium: 16,
-    big: 20,
+    small: RFValue(12),
+    medium: RFValue(16),
+    big: RFValue(20),
   },
 
   colors: {

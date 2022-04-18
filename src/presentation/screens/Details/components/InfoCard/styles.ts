@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import FeatherIcons from 'react-native-vector-icons/Feather';
 
 export const Container = styled.View`
-  min-width: 48%;
+  width: 48%;
   background-color: ${props => props.theme.colors.background.terciary};
   border-radius: ${props => props.theme.borderRadius.big}px;
   padding: ${props => props.theme.padding.small}px;
@@ -16,7 +16,7 @@ export const Row = styled.View`
 
 export const Label = styled.Text`
   font-family: ${props => props.theme.fonts.primary.semibold};
-  font-size: ${props => props.theme.fontSize.big}px;
+  font-size: ${props => props.theme.fontSize.medium}px;
   color: ${props => props.theme.colors.texts.secondary};
 `;
 
@@ -29,7 +29,7 @@ export const ValueLabel = styled.Text`
 export const Icon = styled(FeatherIcons).attrs(props => ({
   name: props.name || 'plus',
   color: props.theme.colors.texts.secondary,
-  size: props.theme.fontSize.big * 2,
+  size: props.theme.fontSize.big,
 }))`
   margin-right: ${props => props.theme.padding.small}px;
 `;

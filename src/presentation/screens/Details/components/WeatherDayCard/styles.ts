@@ -2,14 +2,15 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   max-width: 28%;
+  max-height: 80%;
   background-color: ${props => props.theme.colors.background.secondary};
   border-radius: ${props => props.theme.borderRadius.big}px;
   padding: ${props => props.theme.padding.small}px;
 `;
 
 export const DayLabel = styled.Text`
-  font-family: ${props => props.theme.fonts.primary.semibold};
-  font-size: ${props => props.theme.fontSize.big}px;
+  font-family: ${props => props.theme.fonts.primary.regular};
+  font-size: ${props => props.theme.fontSize.medium}px;
   color: ${props => props.theme.colors.texts.secondary};
 `;
 

@@ -6,13 +6,16 @@ const {width} = Dimensions.get('screen');
 
 export const Container = styled.View`
   flex: 1;
+  align-items: center;
 `;
 
 export const SwipeContainer = styled(Carousel).attrs({
   sliderWidth: width,
   itemWidth: width,
   windowSize: 1,
-})<any>``;
+})<any>`
+  background-color: orange;
+`;
 
 export const PaginationDots = styled(Pagination).attrs(props => ({
   dotStyle: {

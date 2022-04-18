@@ -21,7 +21,7 @@ export const Header = styled(HeaderComponent)``;
 export const CityTitle = styled(CityTitleComponent)``;
 
 export const InfoContainer = styled.View`
-  flex: 2;
+  flex: 1;
 `;
 
 export const InfoList = styled.View`
@@ -35,7 +35,7 @@ export const WeatherList = styled.ScrollView.attrs({
   showsHorizontalScrollIndicator: false,
   contentContainerStyle: {
     flexGrow: 1,
-    height: '80%',
+    minHeight: '80%',
   },
   fadingEdgeLength: 30,
 })``;
@@ -54,5 +54,6 @@ export const WeatherCard = styled(WeatherCardComponent).attrs(props => ({
     marginRight: props.theme.padding.medium,
   },
 }))`
+  flex: 0.5;
   flex-direction: row;
 `;
