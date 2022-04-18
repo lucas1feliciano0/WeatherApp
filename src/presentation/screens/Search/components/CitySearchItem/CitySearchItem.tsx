@@ -8,6 +8,7 @@ interface IProps {
   subtitle?: string;
   onPressAdd?: (id: number) => void;
   addButtonAccessibilityHint?: string;
+  style?: [];
 }
 
 const CitySearchItem: React.FC<IProps> = ({
@@ -16,13 +17,14 @@ const CitySearchItem: React.FC<IProps> = ({
   subtitle,
   onPressAdd,
   addButtonAccessibilityHint,
+  style,
 }) => {
   function handlePressAdd() {
     onPressAdd?.(id);
   }
 
   return (
-    <Container>
+    <Container style={style}>
       <Column>
         <Title>{title}</Title>
         <Subtitle>{subtitle}</Subtitle>
