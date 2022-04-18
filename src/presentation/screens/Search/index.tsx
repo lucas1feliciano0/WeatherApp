@@ -1,20 +1,29 @@
 import React, {useState} from 'react';
+
 import {CityModel} from '../../../domain/models/city';
+import {SearchCity} from '../../../domain/usecases/search-city';
 
 import {Container, CitySearchItem, Header, Input, List} from './styles';
 
-const Search: React.FC = () => {
-  const [searchValue, setSearchValue] = useState('');
+interface IProps {
+  searchCity: SearchCity;
+}
 
-  // TODO: implement fetch cities
-  const cities: CityModel[] = [];
+const Search: React.FC<IProps> = ({searchCity}) => {
+  const [searchValue, setSearchValue] = useState('');
+  const [cities, setCities] = useState<CityModel[]>([]);
 
   function handleGoBack() {
     // TODO: implement go back
   }
 
-  function handleSubmitSearch() {
-    // TODO: implement search with value
+  async function handleSaveCity(city: CityModel) {
+    // TODO: implement save city
+  }
+
+  async function handleSubmitSearch() {
+    const response = await searchCity.handle({name: searchValue});
+    setCities(response);
   }
 
   function renderCitySearchItems({item}: {item: CityModel}) {

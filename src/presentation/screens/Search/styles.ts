@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 import {CityModel} from './../../../domain/models/city';
 
-import HeaderComponent from '../../components/Header';
+import {Header as HeaderComponent} from '../../components/Header';
 import {Input as InputComponent} from '../../components/Input';
 
 import {CitySearchItem as CitySearchItemComponent} from './components/CitySearchItem';
