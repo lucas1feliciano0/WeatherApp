@@ -6,6 +6,7 @@ import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {CityModel} from '../../../domain/models/city';
 import {SearchWeather} from '../../../domain/usecases/get-weather';
 import {ListCity} from '../../../domain/usecases/list-city';
+import {ChangeFavoriteCity} from '../../../domain/usecases/change-favorite-city';
 
 import {RootStackParamList} from '../../../main/routes/router';
 
@@ -13,15 +14,18 @@ import {EmptyList} from './components/EmptyList';
 import WeatherCarousel from './components/WeatherCarousel/WeatherCarousel';
 
 import {Button, CityTitle, Container, Header} from './styles';
+import {KeyNotFoundError} from '../../../domain/errors/key-not-found-error';
+import {Alert} from 'react-native';
 
 type HomeNavigation = StackNavigationProp<RootStackParamList, 'Home'>;
 
 interface IProps {
   listCities: ListCity;
   getWeather: SearchWeather;
+  favoriteCity: ChangeFavoriteCity;
 }
 
-const Home: React.FC<IProps> = ({listCities, getWeather}) => {
+const Home: React.FC<IProps> = ({listCities, getWeather, favoriteCity}) => {
   const navigation = useNavigation<HomeNavigation>();
 
   const [cities, setCities] = useState<CityModel[]>([]);
@@ -38,8 +42,16 @@ const Home: React.FC<IProps> = ({listCities, getWeather}) => {
     navigation.navigate('Search');
   }
 
-  function handleFavoriteCity() {
-    // TODO: handle navigation
+  async function handleFavoriteCity() {
+    if (activeCity) {
+      const result = await favoriteCity.handle(activeCity.id);
+
+      if (result instanceof KeyNotFoundError) {
+        Alert.alert('Erro ao favoritar/desfavoritar cidade');
+      } else {
+        loadCities();
+      }
+    }
   }
 
   function clear() {
@@ -95,11 +107,11 @@ const Home: React.FC<IProps> = ({listCities, getWeather}) => {
       ) : (
         <>
           <Header
-            rightButtonIcon="heart"
+            rightButtonIcon={activeCity?.isFavorite ? 'x' : 'heart'}
             onPressLeft={handleNavigateToAddCity}
             leftAccessibilityHint="Ir para a tela de pesquisar cidades"
             onPressRight={handleFavoriteCity}
-            rightAccessibilityHint="Favoritar cidade">
+            rightAccessibilityHint="Favoritar ou desfavoritar cidade">
             <CityTitle
               title={activeCity?.name}
               subtitle={activeCity?.country}
