@@ -1,4 +1,4 @@
-import {AsyncStorageStatic} from 'react-native';
+import {AsyncStorageStatic} from '@react-native-async-storage/async-storage';
 
 import {IStorage} from '../../domain/gateways/storage';
 

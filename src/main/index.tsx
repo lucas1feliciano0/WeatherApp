@@ -1,10 +1,10 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
 
-import Home from '../presentation/screens/Home';
-
 import theme from '../presentation/theme';
 import {ThemeProvider} from '../presentation/theme/styled-components';
+
+import {Router} from './routes/router';
 
 const main: React.FC = () => {
   return (
@@ -13,7 +13,7 @@ const main: React.FC = () => {
         backgroundColor={theme.colors.background.primary}
         barStyle="light-content"
       />
-      <Home />
+      <Router />
     </ThemeProvider>
   );
 };

@@ -1,14 +1,19 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+
 import {CityModel} from '../../../domain/models/city';
+import {ListCity} from '../../../domain/usecases/list-city';
 
 import {EmptyList} from './components/EmptyList';
 import WeatherCarousel from './components/WeatherCarousel/WeatherCarousel';
 
 import {Button, CityTitle, Container, Header} from './styles';
 
-const Home: React.FC = () => {
-  // TODO: implements local storage fetch
-  const cities: CityModel[] = [];
+interface IProps {
+  listCities: ListCity;
+}
+
+const Home: React.FC<IProps> = ({listCities}) => {
+  const [cities, setCities] = useState<CityModel[]>([]);
 
   const [activeCity, setActiveCity] = useState(cities[0] || undefined);
 
@@ -25,6 +30,16 @@ const Home: React.FC = () => {
   function handleFavoriteCity() {
     // TODO: handle navigation
   }
+
+  useEffect(() => {
+    async function loadCities() {
+      const response = await listCities.handle();
+
+      setCities(response);
+    }
+
+    loadCities();
+  }, [listCities]);
 
   return (
     <Container>
