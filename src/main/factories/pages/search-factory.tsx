@@ -2,10 +2,15 @@ import React from 'react';
 
 import Search from '../../../presentation/screens/Search';
 
-import {makeRemoteSearchCity} from '../usecases';
+import {makeRemoteSearchCity, makeLocalSaveCity} from '../usecases';
 
-const makeHomeScreen: React.FC = () => {
-  return <Search searchCity={makeRemoteSearchCity()} />;
+const makeSearchScreen: React.FC = () => {
+  return (
+    <Search
+      searchCity={makeRemoteSearchCity()}
+      saveCity={makeLocalSaveCity()}
+    />
+  );
 };
 
-export default makeHomeScreen;
+export default makeSearchScreen;

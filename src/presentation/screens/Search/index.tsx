@@ -1,15 +1,17 @@
 import React, {useState} from 'react';
 
 import {CityModel} from '../../../domain/models/city';
+import {SaveCity} from '../../../domain/usecases/save-city';
 import {SearchCity} from '../../../domain/usecases/search-city';
 
 import {Container, CitySearchItem, Header, Input, List} from './styles';
 
 interface IProps {
   searchCity: SearchCity;
+  saveCity: SaveCity;
 }
 
-const Search: React.FC<IProps> = ({searchCity}) => {
+const Search: React.FC<IProps> = ({searchCity, saveCity}) => {
   const [searchValue, setSearchValue] = useState('');
   const [cities, setCities] = useState<CityModel[]>([]);
 
@@ -18,7 +20,7 @@ const Search: React.FC<IProps> = ({searchCity}) => {
   }
 
   async function handleSaveCity(city: CityModel) {
-    // TODO: implement save city
+    saveCity.handle(city);
   }
 
   async function handleSubmitSearch() {
@@ -33,7 +35,7 @@ const Search: React.FC<IProps> = ({searchCity}) => {
         title={item.name}
         subtitle={item.country}
         addButtonAccessibilityHint="Clique aqui para adicionar a cidade"
-        onPressAdd={console.log}
+        onPressAdd={handleSaveCity}
       />
     );
   }
