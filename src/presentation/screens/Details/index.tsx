@@ -14,15 +14,25 @@ import {
   WeatherList,
   InfoCard,
 } from './styles';
+import {RemoveCity} from '../../../domain/usecases/remove-city';
 
 type DetailsRouteParams = RouteProp<RootStackParamList, 'Details'>;
 
-const Details: React.FC = () => {
+interface IProps {
+  removeCity: RemoveCity;
+}
+
+const Details: React.FC<IProps> = ({removeCity}) => {
   const navigation = useNavigation();
   const {city} = useRoute<DetailsRouteParams>()?.params || {};
 
   function handleGoBack() {
     navigation.goBack();
+  }
+
+  async function handleRemoveCity() {
+    await removeCity.handle(city.id);
+    handleGoBack();
   }
 
   function renderWeatherDays() {
@@ -46,7 +56,7 @@ const Details: React.FC = () => {
         leftButtonIcon="arrow-left"
         onPressLeft={handleGoBack}
         leftAccessibilityHint="Voltar para página inicial"
-        onPressRight={() => {}}
+        onPressRight={handleRemoveCity}
         rightAccessibilityHint="Remover cidade">
         <CityTitle title={city?.name} subtitle={city?.country} />
       </Header>
@@ -68,7 +78,7 @@ const Details: React.FC = () => {
             value={`${todayWeather.minTemperature} º`}
           />
           <InfoCard
-            label="Humidade"
+            label="Umidade"
             iconName="droplet"
             value={todayWeather.humidity}
           />
