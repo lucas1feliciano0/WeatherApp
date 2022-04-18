@@ -3,7 +3,7 @@ import {fireEvent, render} from '@testing-library/react-native';
 
 import {Provider} from '../../../main/config/TestProvider';
 
-import Button from './Button';
+import {Button} from './Button';
 
 describe('Button component', () => {
   it('should render text correctly', () => {

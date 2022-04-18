@@ -2,7 +2,7 @@ import React from 'react';
 import {fireEvent, render} from '@testing-library/react-native';
 
 import {Provider} from '../../../main/config/TestProvider';
-import Header from './index';
+import {Header} from './index';
 import {Text} from 'react-native';
 
 describe('Header component', () => {

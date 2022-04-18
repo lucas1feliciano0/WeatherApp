@@ -21,4 +21,4 @@ const WeatherCard: React.FC<IProps> = ({title, description}) => {
   );
 };
 
-export default WeatherCard;
+export {WeatherCard};

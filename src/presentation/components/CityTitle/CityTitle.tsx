@@ -16,4 +16,4 @@ const CityTitle: React.FC<IProps> = ({title, subtitle}) => {
   );
 };
 
-export default CityTitle;
+export {CityTitle};

@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from '../../components/Header';
-import {EmptyList} from './components/EmptyList';
-import WeatherCard from './components/WeatherCard';
 
-import {Button, CityTitle, Container} from './styles';
+import {EmptyList} from './components/EmptyList';
+import {WeatherCard} from './components/WeatherCard';
+
+import {Button, CityTitle, Container, Header} from './styles';
 
 const Home: React.FC = () => {
   const empty = false;

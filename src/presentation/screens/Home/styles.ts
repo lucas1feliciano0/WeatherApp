@@ -1,7 +1,9 @@
 import styled from 'styled-components/native';
+import Carousel from 'react-native-snap-carousel';
 
-import ButtonComponent from '../../components/Button/Button';
-import CityTitleComponent from '../../components/CityTitle/CityTitle';
+import {Button as ButtonComponent} from '../../components/Button';
+import {CityTitle as CityTitleComponent} from '../../components/CityTitle';
+import {Header as HeaderComponent} from '../../components/Header';
 
 export const Container = styled.View`
   flex: 1;
@@ -11,4 +13,8 @@ export const Container = styled.View`
 
 export const Button = styled(ButtonComponent)``;
 
+export const Header = styled(HeaderComponent)``;
+
 export const CityTitle = styled(CityTitleComponent)``;
+
+export const SwipeContainer = styled(Carousel)``;
