@@ -25,7 +25,7 @@ const theme: DefaultTheme = {
 
   padding: {
     small: 12,
-    medium: 14,
+    medium: 16,
     big: 20,
   },
 
@@ -35,13 +35,14 @@ const theme: DefaultTheme = {
     background: {
       primary: '#141543',
       secondary: '#242451',
-      terciary: '#282871',
+      terciary: '#3E3E83',
       quaternary: '#7B7DC1',
     },
     texts: {
       primary: '#FFFFFF',
       secondary: '#FFFFFF80',
       terciary: '#FFFFFF50',
+      black: '#2d2d2d',
     },
   },
 };
