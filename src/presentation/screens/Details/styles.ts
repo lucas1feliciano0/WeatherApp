@@ -51,7 +51,7 @@ export const WeatherDayCard = styled(WeatherDayCardComponent)`
 export const WeatherCard = styled(WeatherCardComponent).attrs(props => ({
   imageStyle: {
     width: '45%',
-    marginRight: props.theme.padding.medium,
+    marginRight: props.theme.padding.big * 2,
   },
 }))`
   flex: 0.5;

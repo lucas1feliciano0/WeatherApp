@@ -23,9 +23,11 @@ const WeatherCarousel: React.FC<IProps> = ({data = [], onChangeActive}) => {
     if (!item.weather) {
       return;
     }
+    console.log(item.weather[0]);
     return (
       <WeatherCard
         title={item.weather[0].temp}
+        weather={item.weather[0].category}
         description={item.weather[0].description}
       />
     );

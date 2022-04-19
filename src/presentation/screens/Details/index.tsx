@@ -80,6 +80,7 @@ const Details: React.FC<IProps> = ({removeCity, dateFormatter}) => {
         <CityTitle title={city?.name} subtitle={city?.address} />
       </Header>
       <WeatherCard
+        weather={todayWeather.category}
         title={todayWeather.temp}
         description={todayWeather.description}
       />

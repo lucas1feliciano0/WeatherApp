@@ -1,8 +1,6 @@
 import React from 'react';
 import {ImageStyle, StyleProp, ViewStyle} from 'react-native';
 
-import sunImage from '../../../presentation/assets/images/sun/sun_cloud_air.png';
-
 import {
   ColoredTitle,
   Column,
@@ -14,6 +12,7 @@ import {
 
 interface IProps {
   title: string | number;
+  weather: string;
   description?: string;
   style?: StyleProp<ViewStyle>;
   imageStyle?: StyleProp<ImageStyle>;
@@ -21,13 +20,14 @@ interface IProps {
 
 const WeatherCard: React.FC<IProps> = ({
   title,
+  weather,
   description,
   style,
   imageStyle,
 }) => {
   return (
     <Container style={style}>
-      <Icon source={sunImage} style={imageStyle} />
+      <Icon weather={weather} style={imageStyle} />
       <Column>
         <Title>
           {title} <ColoredTitle>º</ColoredTitle>

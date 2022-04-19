@@ -12,6 +12,7 @@ function mapDailyWeather(weather: any) {
     feelsLike: weather.feels_like,
     humidity: weather.humidity,
     windSpeed: weather.wind_speed,
+    category: weather.weather[0].main,
   };
 }
 
@@ -25,6 +26,7 @@ function mapForecastWeather(weather: any): WeatherModel {
     feelsLike: weather.feels_like.day,
     humidity: weather.humidity,
     windSpeed: weather.wind_speed,
+    category: weather.weather[0].main,
   };
 }
 

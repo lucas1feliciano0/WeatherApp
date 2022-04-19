@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
 import {MotiView} from 'moti';
 
+import {WeatherIcon} from '../WeatherIcon';
+
 export const Container = styled(MotiView).attrs({
   from: {opacity: 0, translateY: 10},
   animate: {opacity: 1, translateY: 0},
@@ -14,12 +16,7 @@ export const Column = styled.View`
   align-items: center;
 `;
 
-export const Icon = styled.Image.attrs({
-  resizeMode: 'contain',
-})`
-  height: 40%;
-  aspect-ratio: 1;
-`;
+export const Icon = styled(WeatherIcon)``;
 
 export const Title = styled.Text.attrs({
   includeFontPadding: false,

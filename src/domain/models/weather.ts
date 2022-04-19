@@ -7,4 +7,5 @@ export type WeatherModel = {
   feelsLike: number;
   humidity: number;
   windSpeed: number;
+  category: string;
 };

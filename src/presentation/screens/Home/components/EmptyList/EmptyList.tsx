@@ -1,6 +1,6 @@
 import React from 'react';
 
-import sunImage from '../../../../assets/images/sun/sun_cloud_air.png';
+import defaultImage from '../../../../assets/images/others/default.png';
 
 import {Button} from '../../styles';
 import {Container, Icon, Subtitle, Title} from './styles';
@@ -16,7 +16,7 @@ const EmptyList: React.FC<IProps> = ({
 }) => {
   return (
     <Container>
-      <Icon source={sunImage} />
+      <Icon source={defaultImage} />
       <Title>Você ainda não adicionou nenhuma cidade</Title>
       <Subtitle>Clique no botão abaixo para adicionar</Subtitle>
       <Button
