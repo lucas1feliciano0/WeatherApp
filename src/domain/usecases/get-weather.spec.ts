@@ -11,6 +11,6 @@ describe('Get weather usecase', () => {
 
     const spy = jest.spyOn(remoteWeatherRepo, 'search');
     searchWeather.handle(data);
-    expect(spy).toBeCalledWith(data);
+    expect(spy).toBeCalledWith(data.lat, data.lon);
   });
 });

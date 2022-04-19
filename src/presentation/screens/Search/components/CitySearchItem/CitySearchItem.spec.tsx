@@ -11,7 +11,7 @@ describe('CitySearchItem component', () => {
 
     const {getByText} = render(
       <Provider>
-        <CitySearchItem id={1} title={text1} subtitle={text2} />
+        <CitySearchItem id={1} lat={1} lon={1} title={text1} subtitle={text2} />
       </Provider>,
     );
 
@@ -29,6 +29,8 @@ describe('CitySearchItem component', () => {
       <Provider>
         <CitySearchItem
           id={id}
+          lat={1}
+          lon={1}
           title={text1}
           addButtonAccessibilityHint={a11y}
           onPressAdd={spy}
@@ -39,6 +41,5 @@ describe('CitySearchItem component', () => {
     fireEvent.press(button);
 
     expect(spy).toBeCalled();
-    expect(spy).toBeCalledWith(id);
   });
 });
