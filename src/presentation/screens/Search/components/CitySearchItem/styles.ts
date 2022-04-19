@@ -11,7 +11,9 @@ export const Container = styled.View`
   border-radius: ${props => props.theme.borderRadius.big}px;
 `;
 
-export const Column = styled.View``;
+export const Column = styled.View`
+  flex: 1;
+`;
 
 export const Title = styled.Text.attrs({
   numberOfLines: 1,
