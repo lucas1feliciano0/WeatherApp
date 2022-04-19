@@ -143,6 +143,7 @@ const Home: React.FC<IProps> = ({listCities, getWeather, favoriteCity}) => {
           />
           <Button
             title="Ver detalhes da cidade"
+            disabled={!activeCity}
             onPress={handleNavigateToDetails}
           />
         </>

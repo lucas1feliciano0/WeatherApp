@@ -6,6 +6,7 @@ interface IProps {
   title: string;
   onPress(): void;
   acessibilityHint?: string;
+  disabled?: boolean;
   style?: [];
   textStyle?: [];
 }
@@ -16,10 +17,12 @@ const Button: React.FC<IProps> = ({
   acessibilityHint,
   style,
   textStyle,
+  disabled,
 }) => {
   return (
     <Container
       style={style}
+      disabled={disabled}
       onPress={onPress}
       accessibilityHint={acessibilityHint}>
       <Text style={textStyle}>{title}</Text>
