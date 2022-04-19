@@ -7,10 +7,10 @@ describe('Get weather usecase', () => {
   it('should call search function', () => {
     const remoteWeatherRepo = mock<IRemoteWeatherRepository>();
     const searchWeather = new SearchWeather(remoteWeatherRepo);
-    const id = 1;
+    const data = {lat: 1, lon: 1};
 
     const spy = jest.spyOn(remoteWeatherRepo, 'search');
-    searchWeather.handle({id});
-    expect(spy).toBeCalledWith(id);
+    searchWeather.handle(data);
+    expect(spy).toBeCalledWith(data);
   });
 });

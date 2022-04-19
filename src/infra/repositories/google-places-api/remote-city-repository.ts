@@ -35,7 +35,7 @@ export class GPACityRepository implements IRemoteCityRepository {
         sensor: false,
       },
     });
-    console.log(response.body.results);
+
     return response.body.results.map(mapCity);
   }
 }
