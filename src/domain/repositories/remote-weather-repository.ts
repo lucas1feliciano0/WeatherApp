@@ -1,5 +1,5 @@
 import {WeatherModel} from '../models/weather';
 
 export interface IRemoteWeatherRepository {
-  search(id: number): Promise<WeatherModel[]>;
+  search(lat: number, lon: number): Promise<WeatherModel[]>;
 }

@@ -17,7 +17,9 @@ describe('Save city usecase', () => {
     const {saveCity, storageMock} = makeSut();
     const city: CityModel = {
       id: 1,
-      country: 'BR',
+      lat: -35,
+      lon: -6,
+      address: 'BR',
       name: 'Tangará',
       isFavorite: false,
     };
@@ -32,7 +34,9 @@ describe('Save city usecase', () => {
     const {saveCity, storageMock} = makeSut();
     const city: CityModel = {
       id: 1,
-      country: 'BR',
+      lat: -35,
+      lon: -6,
+      address: 'BR',
       name: 'Tangará',
       isFavorite: false,
     };

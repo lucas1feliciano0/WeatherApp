@@ -33,7 +33,9 @@ describe('Remove city usecase', () => {
     const {removeCity, storageMock} = makeSut();
     const city: CityModel = {
       id: 1,
-      country: 'BR',
+      lat: -35,
+      lon: -6,
+      address: 'BR',
       name: 'Tangará',
       isFavorite: false,
     };

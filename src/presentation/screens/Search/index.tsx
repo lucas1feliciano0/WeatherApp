@@ -44,7 +44,9 @@ const Search: React.FC<IProps> = ({searchCity, saveCity}) => {
       <CitySearchItem
         id={item.id}
         title={item.name}
-        subtitle={item.country}
+        lat={item.lat}
+        lon={item.lon}
+        subtitle={item.address}
         addButtonAccessibilityHint="Clique aqui para adicionar a cidade"
         onPressAdd={handleSaveCity}
       />

@@ -6,6 +6,8 @@ import {Button, Column, Container, Icon, Subtitle, Title} from './styles';
 
 interface IProps {
   id: number;
+  lat: number;
+  lon: number;
   title: string;
   subtitle?: string;
   onPressAdd?: (city: CityModel) => void;
@@ -16,6 +18,8 @@ interface IProps {
 const CitySearchItem: React.FC<IProps> = ({
   id,
   title,
+  lat,
+  lon,
   subtitle,
   onPressAdd,
   addButtonAccessibilityHint,
@@ -24,8 +28,10 @@ const CitySearchItem: React.FC<IProps> = ({
   function handlePressAdd() {
     const city: CityModel = {
       id,
+      lat,
+      lon,
       name: title,
-      country: subtitle || '',
+      address: subtitle || '',
     };
     onPressAdd?.(city);
   }
