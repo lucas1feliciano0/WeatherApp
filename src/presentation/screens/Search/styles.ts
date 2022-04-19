@@ -28,5 +28,6 @@ export const List = styled(FlatList as new () => FlatList<CityModel[]>).attrs(
       marginTop: props.theme.padding.medium,
     },
     showsVerticalScrollIndicator: false,
+    keyboardShouldPersistTaps: 'always',
   }),
 )``;
