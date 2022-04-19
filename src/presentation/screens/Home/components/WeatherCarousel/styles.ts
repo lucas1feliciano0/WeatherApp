@@ -18,6 +18,7 @@ export const Column = styled.View`
 
 export const Touchable = styled.TouchableOpacity`
   z-index: 1;
+  ${props => (props.disabled ? 'opacity: 0.6; transform: scale(0.8)' : '')}
 `;
 
 export const SwipeContainer = styled(Carousel).attrs({

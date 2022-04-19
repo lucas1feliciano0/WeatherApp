@@ -21,20 +21,19 @@ interface IProps {
 const WeatherCarousel: React.FC<IProps> = ({data = [], onChangeActive}) => {
   const [activeDot, setActiveDot] = useState(0);
 
+  const canGoNext = activeDot + 1 < data.length;
+  const canGoPrev = activeDot - 1 >= 0;
+
   const swipeRef = useRef<Carousel<JSX.Element> | null>(null);
 
   function handlePressNextCity() {
-    const nextCityIndex = activeDot + 1;
-
-    if (nextCityIndex < data.length) {
+    if (canGoNext) {
       swipeRef?.current?.snapToNext();
     }
   }
 
   function handlePressPrevCity() {
-    const nextCityIndex = activeDot - 1;
-
-    if (nextCityIndex >= 0) {
+    if (canGoPrev) {
       swipeRef?.current?.snapToPrev();
     }
   }
@@ -61,7 +60,7 @@ const WeatherCarousel: React.FC<IProps> = ({data = [], onChangeActive}) => {
 
   return (
     <Container>
-      <Touchable onPress={handlePressPrevCity}>
+      <Touchable disabled={!canGoPrev} onPress={handlePressPrevCity}>
         <Icon name="chevron-left" />
       </Touchable>
       <Column>
@@ -75,7 +74,7 @@ const WeatherCarousel: React.FC<IProps> = ({data = [], onChangeActive}) => {
         />
         <PaginationDots dotsLength={data.length} activeDotIndex={activeDot} />
       </Column>
-      <Touchable onPress={handlePressNextCity}>
+      <Touchable disabled={!canGoNext} onPress={handlePressNextCity}>
         <Icon name="chevron-right" />
       </Touchable>
     </Container>
