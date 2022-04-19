@@ -39,21 +39,20 @@ const Details: React.FC<IProps> = ({removeCity, dateFormatter}) => {
   }
 
   function renderWeatherDays() {
-    const labels = ['Hoje', 'Amanhã'];
+    const textDayLabels = ['Hoje', 'Amanhã'];
     const WeatherDays = city.weather?.map((weatherDay, index) => {
       const date = dateFormatter.fromUnixToDate({
         date: weatherDay.dt,
       });
+      const labelDate = dateFormatter.format({
+        date,
+        formatString: 'dd/MM',
+      });
 
       return (
         <WeatherDayCard
-          day={
-            labels[index] ||
-            dateFormatter.format({
-              date: date,
-              formatString: 'dd/MM',
-            })
-          }
+          key={weatherDay.dt}
+          day={textDayLabels[index] || labelDate}
           value={weatherDay.temp}
         />
       );
