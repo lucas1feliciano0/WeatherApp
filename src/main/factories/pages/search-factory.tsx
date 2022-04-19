@@ -4,7 +4,7 @@ import Search from '../../../presentation/screens/Search';
 
 import {makeRemoteSearchCity, makeLocalSaveCity} from '../usecases';
 
-const makeSearchScreen: React.FC = () => {
+const MakeSearchScreen: React.FC = () => {
   return (
     <Search
       searchCity={makeRemoteSearchCity()}
@@ -13,4 +13,4 @@ const makeSearchScreen: React.FC = () => {
   );
 };
 
-export default makeSearchScreen;
+export default MakeSearchScreen;

@@ -8,7 +8,7 @@ import {
   makeFavoriteCity,
 } from '../usecases';
 
-const makeHomeScreen: React.FC = () => {
+const MakeHomeScreen: React.FC = () => {
   return (
     <Home
       listCities={makeLocalListCity()}
@@ -18,4 +18,4 @@ const makeHomeScreen: React.FC = () => {
   );
 };
 
-export default makeHomeScreen;
+export default MakeHomeScreen;

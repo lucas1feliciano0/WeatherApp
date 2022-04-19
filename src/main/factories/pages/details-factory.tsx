@@ -5,7 +5,7 @@ import Details from '../../../presentation/screens/Details';
 import {makeDateFnsFormatter} from '../date/date-fns-formatter-factory';
 import {makeRemoveCity} from '../usecases/remove-city';
 
-const makeDetailsScreen: React.FC = () => {
+const MakeDetailsScreen: React.FC = () => {
   return (
     <Details
       removeCity={makeRemoveCity()}
@@ -14,4 +14,4 @@ const makeDetailsScreen: React.FC = () => {
   );
 };
 
-export default makeDetailsScreen;
+export default MakeDetailsScreen;
