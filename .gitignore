@@ -60,4 +60,8 @@ buck-out/
 /ios/Pods/
 /vendor/bundle/
 
+# tests coverage
 /coverage
+
+# credentials .env file
+*.env

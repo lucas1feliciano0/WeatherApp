@@ -19,6 +19,8 @@
     "moti": "^0.17.1",
     "react": "17.0.2",
     "react-native": "0.68.1",
+    "react-native-config": "^1.4.5",
+    "react-native-dotenv": "^3.3.1",
     "react-native-gesture-handler": "^2.4.0",
     "react-native-reanimated": "^2.7.0",
     "react-native-responsive-fontsize": "^0.5.1",
@@ -59,7 +61,9 @@
     "setupFilesAfterEnv": [
       "@testing-library/jest-native/extend-expect"
     ],
-    "setupFiles": ["./src/main/config/jest.setup.js"],
+    "setupFiles": [
+      "./src/main/config/jest.setup.js"
+    ],
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/(@react-native-community|react-navigation|@react-navigation/.*)"
     ]
