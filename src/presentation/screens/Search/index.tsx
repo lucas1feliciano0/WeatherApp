@@ -64,6 +64,10 @@ const Search: React.FC<IProps> = ({searchCity, saveCity}) => {
         <Input
           placeholder="Insira o nome da cidade"
           onChangeText={setSearchValue}
+          inputProps={{
+            returnKeyType: 'search',
+            onSubmitEditing: handleSubmitSearch,
+          }}
         />
       </Header>
       <List<React.ElementType>
