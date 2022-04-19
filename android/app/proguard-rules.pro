@@ -52,3 +52,6 @@
 # hermes
 -keep class com.facebook.jni.** { *; }
 -keep public class com.horcrux.svg.** {*;}
+
+#config
+-keep class com.weatherapp.BuildConfig { *; }
