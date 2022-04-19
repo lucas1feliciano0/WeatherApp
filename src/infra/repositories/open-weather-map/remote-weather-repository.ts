@@ -4,7 +4,7 @@ import {IRemoteWeatherRepository} from '../../../domain/repositories/remote-weat
 
 function mapWeather(weather: any): WeatherModel {
   return {
-    dt: weather.main.dt,
+    dt: weather.dt,
     description: weather.weather[0]?.description,
     temp: weather.main.temp,
     maxTemperature: weather.main.temp_max,

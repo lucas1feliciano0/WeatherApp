@@ -1,6 +1,9 @@
 import React from 'react';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 
+import {RemoveCity} from '../../../domain/usecases/remove-city';
+import {IDateFormatter} from '../../../domain/gateways';
+
 import {RootStackParamList} from '../../../main/routes/router';
 
 import {
@@ -14,15 +17,15 @@ import {
   WeatherList,
   InfoCard,
 } from './styles';
-import {RemoveCity} from '../../../domain/usecases/remove-city';
 
 type DetailsRouteParams = RouteProp<RootStackParamList, 'Details'>;
 
 interface IProps {
   removeCity: RemoveCity;
+  dateFormatter: IDateFormatter;
 }
 
-const Details: React.FC<IProps> = ({removeCity}) => {
+const Details: React.FC<IProps> = ({removeCity, dateFormatter}) => {
   const navigation = useNavigation();
   const {city} = useRoute<DetailsRouteParams>()?.params || {};
 
@@ -36,9 +39,21 @@ const Details: React.FC<IProps> = ({removeCity}) => {
   }
 
   function renderWeatherDays() {
-    const WeatherDays = city.weather?.map(weatherDay => (
-      <WeatherDayCard day="18/04" value={weatherDay.temp} />
-    ));
+    const WeatherDays = city.weather?.map(weatherDay => {
+      const date = dateFormatter.fromUnixToDate({
+        date: weatherDay.dt,
+      });
+
+      return (
+        <WeatherDayCard
+          day={dateFormatter.format({
+            date: date,
+            formatString: 'dd/MM',
+          })}
+          value={weatherDay.temp}
+        />
+      );
+    });
 
     return <WeatherList>{WeatherDays}</WeatherList>;
   }
