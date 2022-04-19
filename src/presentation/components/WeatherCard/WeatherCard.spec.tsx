@@ -9,7 +9,7 @@ describe('WeatherCard component', () => {
     const text = 'title';
     const {getByText} = render(
       <Provider>
-        <WeatherCard title={text} />
+        <WeatherCard weather="cloud" title={text} />
       </Provider>,
     );
 
@@ -21,7 +21,7 @@ describe('WeatherCard component', () => {
     const text2 = 'description';
     const {getByText} = render(
       <Provider>
-        <WeatherCard title={text} description={text2} />
+        <WeatherCard weather="cloud" title={text} description={text2} />
       </Provider>,
     );
 

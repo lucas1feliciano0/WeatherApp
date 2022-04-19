@@ -59,6 +59,7 @@
     "setupFilesAfterEnv": [
       "@testing-library/jest-native/extend-expect"
     ],
+    "setupFiles": ["./src/main/config/jest.setup.js"],
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/(@react-native-community|react-navigation|@react-navigation/.*)"
     ]
