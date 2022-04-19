@@ -6,10 +6,12 @@ interface IProps {
   onPressLeft(): void;
   leftButtonIcon?: string;
   leftAccessibilityHint?: string;
+  leftDisabled?: boolean;
 
   onPressRight(): void;
   rightButtonIcon?: string;
   rightAccessibilityHint?: string;
+  rightDisabled?: boolean;
 }
 
 const Header: React.FC<IProps> = ({
@@ -19,15 +21,20 @@ const Header: React.FC<IProps> = ({
   rightButtonIcon,
   onPressRight,
   rightAccessibilityHint,
+  leftDisabled,
+  rightDisabled,
   children,
 }) => {
   return (
     <Container>
-      <Button onPress={onPressLeft} accessibilityHint={leftAccessibilityHint}>
+      <Button
+        disabled={leftDisabled}
+        onPress={onPressLeft}
+        accessibilityHint={leftAccessibilityHint}>
         <Icon name={leftButtonIcon} />
       </Button>
       {children}
-      <Button onPress={onPressRight}>
+      <Button disabled={rightDisabled} onPress={onPressRight}>
         <Icon
           name={rightButtonIcon}
           accessibilityHint={rightAccessibilityHint}

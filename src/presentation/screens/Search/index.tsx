@@ -59,7 +59,8 @@ const Search: React.FC<IProps> = ({searchCity, saveCity}) => {
         onPressLeft={handleGoBack}
         leftButtonIcon="arrow-left"
         rightButtonIcon="search"
-        onPressRight={handleSubmitSearch}>
+        onPressRight={handleSubmitSearch}
+        rightDisabled={!searchValue}>
         <Input
           placeholder="Insira o nome da cidade"
           onChangeText={setSearchValue}

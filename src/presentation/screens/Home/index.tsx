@@ -131,7 +131,8 @@ const Home: React.FC<IProps> = ({listCities, getWeather, favoriteCity}) => {
             onPressLeft={handleNavigateToAddCity}
             leftAccessibilityHint="Ir para a tela de pesquisar cidades"
             onPressRight={handleFavoriteCity}
-            rightAccessibilityHint="Favoritar ou desfavoritar cidade">
+            rightAccessibilityHint="Favoritar ou desfavoritar cidade"
+            leftDisabled={!activeCity}>
             <CityTitle
               title={activeCity?.name || ''}
               subtitle={activeCity?.address}

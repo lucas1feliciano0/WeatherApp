@@ -4,6 +4,7 @@ export const Container = styled.TouchableOpacity`
   padding: ${props => props.theme.padding.medium}px;
   background-color: ${props => props.theme.colors.background.quaternary};
   border-radius: ${props => props.theme.borderRadius.big}px;
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
 `;
 
 export const Text = styled.Text`

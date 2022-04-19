@@ -11,6 +11,7 @@ export const Button = styled.TouchableOpacity`
   padding: ${props => props.theme.padding.small}px;
   background-color: ${props => props.theme.colors.background.quaternary};
   border-radius: ${props => props.theme.borderRadius.big}px;
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
 `;
 
 export const Icon = styled(FeatherIcons).attrs(props => ({
