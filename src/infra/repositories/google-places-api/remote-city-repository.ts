@@ -3,12 +3,15 @@ import {CityModel} from '../../../domain/models/city';
 import {IHttpClient} from '../../../domain/gateways';
 
 function mapCity(city: any): CityModel {
+  const fullAddress = city.formatted_address || '';
+  const address = fullAddress.substring(fullAddress.indexOf(' ') + 1);
+
   return {
     id: city.place_id,
     lat: city.geometry.location.lat,
     lon: city.geometry.location.lng,
     name: city.name,
-    address: city.formatted_address,
+    address,
   };
 }
 

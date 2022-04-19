@@ -10,7 +10,9 @@ export const Title = styled.Text`
   font-size: ${props => props.theme.fontSize.big}px;
 `;
 
-export const Subtitle = styled(Title)`
+export const Subtitle = styled(Title).attrs({
+  numberOfLines: 1,
+})`
   color: ${props => props.theme.colors.texts.terciary};
   font-size: ${props => props.theme.fontSize.medium}px;
 `;
