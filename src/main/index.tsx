@@ -7,7 +7,10 @@ import {ThemeProvider} from '../presentation/theme/styled-components';
 import {Router} from './routes/router';
 
 if (__DEV__) {
-  LogBox.ignoreAllLogs();
+  //  ignore react-native-snap-carousel deprecated logs
+  LogBox.ignoreLogs([
+    "ViewPropTypes will be removed from React Native. Migrate to ViewPropTypes exported from 'deprecated-react-native-prop-types'.",
+  ]);
 }
 
 const main: React.FC = () => {
