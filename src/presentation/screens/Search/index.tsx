@@ -28,7 +28,10 @@ const Search: React.FC<IProps> = ({searchCity, saveCity}) => {
   async function handleSaveCity(city: CityModel) {
     const result = await saveCity.handle(city);
     if (result instanceof CityExistsError) {
-      Alert.alert('A cidade já foi adicionada');
+      Alert.alert(
+        'A cidade já foi adicionada',
+        'Tente novamente com outro valor.',
+      );
     } else {
       handleGoBack();
     }
