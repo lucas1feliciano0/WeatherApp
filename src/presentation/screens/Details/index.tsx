@@ -39,17 +39,21 @@ const Details: React.FC<IProps> = ({removeCity, dateFormatter}) => {
   }
 
   function renderWeatherDays() {
-    const WeatherDays = city.weather?.map(weatherDay => {
+    const labels = ['Hoje', 'Amanhã'];
+    const WeatherDays = city.weather?.map((weatherDay, index) => {
       const date = dateFormatter.fromUnixToDate({
         date: weatherDay.dt,
       });
 
       return (
         <WeatherDayCard
-          day={dateFormatter.format({
-            date: date,
-            formatString: 'dd/MM',
-          })}
+          day={
+            labels[index] ||
+            dateFormatter.format({
+              date: date,
+              formatString: 'dd/MM',
+            })
+          }
           value={weatherDay.temp}
         />
       );
@@ -73,7 +77,7 @@ const Details: React.FC<IProps> = ({removeCity, dateFormatter}) => {
         leftAccessibilityHint="Voltar para página inicial"
         onPressRight={handleRemoveCity}
         rightAccessibilityHint="Remover cidade">
-        <CityTitle title={city?.name} subtitle={city?.country} />
+        <CityTitle title={city?.name} subtitle={city?.address} />
       </Header>
       <WeatherCard
         title={todayWeather.temp}

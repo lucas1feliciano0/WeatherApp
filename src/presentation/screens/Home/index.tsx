@@ -88,11 +88,15 @@ const Home: React.FC<IProps> = ({listCities, getWeather, favoriteCity}) => {
       if (cities.length > 0) {
         const cityIndex = cities.findIndex(city => city.id === id);
         const citiesCopy = [...cities];
+        const cityCopy = {...citiesCopy[cityIndex]};
+
         const weatherResponse = await getWeather.handle({
-          id,
+          lat: cityCopy.lat,
+          lon: cityCopy.lat,
         });
+
         citiesCopy[cityIndex] = {
-          ...citiesCopy[cityIndex],
+          ...cityCopy,
           weather: weatherResponse,
         };
 
@@ -130,7 +134,7 @@ const Home: React.FC<IProps> = ({listCities, getWeather, favoriteCity}) => {
             rightAccessibilityHint="Favoritar ou desfavoritar cidade">
             <CityTitle
               title={activeCity?.name || ''}
-              subtitle={activeCity?.country}
+              subtitle={activeCity?.address}
             />
           </Header>
           <WeatherCarousel
