@@ -4,7 +4,7 @@ import {IHttpClient} from '../../../domain/gateways';
 
 function mapCity(city: any): CityModel {
   const fullAddress = city.formatted_address || '';
-  const address = fullAddress.substring(fullAddress.indexOf(' ') + 1);
+  const address = fullAddress.substring(fullAddress.indexOf(', ') + 1);
 
   return {
     id: city.place_id,
