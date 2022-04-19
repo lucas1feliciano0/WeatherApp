@@ -27,5 +27,6 @@ export const List = styled(FlatList as new () => FlatList<CityModel[]>).attrs(
     contentContainerStyle: {
       marginTop: props.theme.padding.medium,
     },
+    showsVerticalScrollIndicator: false,
   }),
 )``;
