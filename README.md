@@ -34,6 +34,13 @@
 # clone this repository
 $ git clone
 
+# set .env file with the following credentials
+OWM_APP_ID=<YOUR_OPEN_WEATHER_MAP_KEY>
+GPA_API_KEY=<YOUR_GOOGLE_PLACES_API_KEY>
+
+```
+```bash
+
 # install the dependencies
 $ yarn install
 
@@ -55,6 +62,10 @@ $ yarn coverage
 ### 📱 Screenshots
 
 <div style="display: flex; flex-direction: row; flex-wrap: wrap">
+
+<img style="margin: 10px 23px" alt="Introduction screen" src=".github/screenshots/home_sun.jpeg" width="200" height="auto">
+
+<img style="margin: 10px 23px" alt="Introduction screen" src=".github/screenshots/details_sun.jpeg" width="200" height="auto">
 
 <img style="margin: 10px 23px" alt="Introduction screen" src=".github/screenshots/home.jpeg" width="200" height="auto">
 
